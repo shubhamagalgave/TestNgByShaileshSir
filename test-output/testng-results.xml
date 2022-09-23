@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="3" total="6" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Sample Suite" duration-ms="81" started-at="2022-09-02T21:45:12 IST" finished-at="2022-09-02T21:45:12 IST">
+    <groups>
+      <group name="Smoke">
+        <method signature="Grouping.TestCase2()[pri:0, instance:GroupingByShaileshSir.Grouping@6c49835d]" name="TestCase2" class="GroupingByShaileshSir.Grouping"/>
+        <method signature="Grouping.TestCase4()[pri:0, instance:GroupingByShaileshSir.Grouping@6c49835d]" name="TestCase4" class="GroupingByShaileshSir.Grouping"/>
+        <method signature="Grouping.TestCase5()[pri:0, instance:GroupingByShaileshSir.Grouping@6c49835d]" name="TestCase5" class="GroupingByShaileshSir.Grouping"/>
+      </group> <!-- Smoke -->
+    </groups>
+    <test name="testing" duration-ms="81" started-at="2022-09-02T21:45:12 IST" finished-at="2022-09-02T21:45:12 IST">
+      <class name="GroupingByShaileshSir.Grouping">
+        <test-method status="PASS" signature="TestCase2()[pri:0, instance:GroupingByShaileshSir.Grouping@6c49835d]" name="TestCase2" duration-ms="12" started-at="2022-09-02T21:45:12 IST" finished-at="2022-09-02T21:45:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase2 -->
+        <test-method status="PASS" signature="TestCase4()[pri:0, instance:GroupingByShaileshSir.Grouping@6c49835d]" name="TestCase4" duration-ms="5" started-at="2022-09-02T21:45:12 IST" finished-at="2022-09-02T21:45:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase4 -->
+        <test-method status="PASS" signature="TestCase5()[pri:0, instance:GroupingByShaileshSir.Grouping@6c49835d]" name="TestCase5" duration-ms="3" started-at="2022-09-02T21:45:12 IST" finished-at="2022-09-02T21:45:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCase5 -->
+      </class> <!-- GroupingByShaileshSir.Grouping -->
+    </test> <!-- testing -->
+  </suite> <!-- Sample Suite -->
+</testng-results>

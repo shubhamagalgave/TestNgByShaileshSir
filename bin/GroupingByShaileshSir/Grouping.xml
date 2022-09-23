@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Sample Suite">
+	<test name="testing">
+		<groups>
+			<run>                                                   <!--it is not mandatory-->
+				<exclude name="Regression" />
+				<include name="Smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class name="GroupingByShaileshSir.Grouping" />
+		</classes>
+	</test>
+</suite>

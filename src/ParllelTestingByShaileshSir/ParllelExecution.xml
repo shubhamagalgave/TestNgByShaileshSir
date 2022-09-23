@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Parllel Test suite " parllel="methods"	thread-count="2">
+	<test name="Regression 1">
+		<classes>
+			<class name="ParllelTestingByShaileshSir.ParllelTestingWithHelpOfXML"/>
+		</classes>
+	</test>
+</suite>

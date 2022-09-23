@@ -1,0 +1,11 @@
+
+<suite name="parameterization suite">
+	<test name="Testing parameterization">
+		<parameter name="browser" value="webdriver.chrome.driver" />
+		<parameter name="username" value="admin" />
+		<parameter name="password" value="Test@123" />
+		<classes>
+			<class name="Parameterization.Parameterization" />
+		</classes>
+	</test>
+</suite>

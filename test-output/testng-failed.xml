@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="POM1(failed)">
     <classes>
-      <class name="DemoPractice.NewTest">
+      <class name="POM.GuruTest">
         <methods>
-          <include name="f" invocation-numbers="1"/>
+          <include name="guruLogin"/>
         </methods>
-      </class> <!-- DemoPractice.NewTest -->
+      </class> <!-- POM.GuruTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- POM1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

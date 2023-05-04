@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class OrangeHrmLoginPageTest {
   @Test
   public void verifyLogin() {
-	  System.setProperty("webdriver.chrome.driver", "E:\\Acceleration\\Automation Testing\\Workplace 4.9\\Test\\Executable\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver", "E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\driver.exe");
 	  WebDriver driver = new ChromeDriver();
 	  driver.get("https://opensource-demo.orangehrmlive.com/");
 	  driver.manage().window().maximize();

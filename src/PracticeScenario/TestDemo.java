@@ -1,5 +1,9 @@
 package PracticeScenario;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -8,9 +12,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-
 import java.net.URL;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
@@ -28,19 +30,17 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import POM.LoginPage23;
 import Page1.GoogleSearchBoxSuggetion;
 import ReusableComponant.BaseClass;
 
 public class TestDemo extends BaseTestutil {
+	public WebDriver driver=getDriver();
+	
+	
 	@Test(priority = 0, enabled = false)
 	public void identifyLogoField() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\driver.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.redbus.in/");
-		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement e = driver.findElement(By.xpath("//a[@class=\"home-redirect redbus-logo\"]"));
 		//explicitWait(driver, e);
@@ -51,21 +51,13 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 1, enabled = false)
 	public void reusableLoginMethodUse() throws IOException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		BaseClass bt = new BaseClass();
 		bt.logIn(driver);
-		driver.close();
 	}
 
 	@Test(priority = 2, enabled = false)
 	public void validateText() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement ele = driver.findElement(By.xpath("//h5[text()=\"Login\"]"));
 		String text = ele.getText();
@@ -77,14 +69,10 @@ public class TestDemo extends BaseTestutil {
 		} else {
 			System.out.println("Test invalid");
 		}
-		//driver.close();
 	}
 
 	@Test(priority = 3, enabled = false)
 	public void allNavigationCommand() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/");
 		// or driver.get("https://www.snapdeal.com/");
 		driver.manage().window().maximize();
@@ -100,9 +88,6 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 4, enabled = false)
 	public void allConditionalMethod() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://demo.nopcommerce.com/register");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -133,11 +118,8 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 4, enabled = false)
 	public void ScrollDownByJavaScriptExecutor() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://demo.nopcommerce.com/register");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,1000)", "");
@@ -148,8 +130,8 @@ public class TestDemo extends BaseTestutil {
 	@Test(enabled = false)
 	public void Assertion() {
 		// HardAssert
-		Assert.assertTrue(true);// passed
-		Assert.assertEquals("shubham", "Shubham");// false-failed
+		AssertJUnit.assertTrue(true);// passed
+		AssertJUnit.assertEquals("shubham", "Shubham");// false-failed
 		System.out.println("TC Passed");
 	}
 
@@ -157,44 +139,38 @@ public class TestDemo extends BaseTestutil {
 	public void SoftAssertion() {
 		// SoftAssert
 		SoftAssert softAssert = new SoftAssert();
-		softAssert.assertTrue(true);
-		softAssert.assertEquals("shubham", "shubham");
-		softAssert.assertEquals("selenium", "Selenium");
+		AssertJUnit.assertTrue(true);
+		AssertJUnit.assertEquals("shubham", "shubham");
+		AssertJUnit.assertEquals("selenium", "Selenium");
 		System.out.println("TC Passed");
 		softAssert.assertAll();
 	}
 
 	@Test(priority = 5, enabled = false)
 	public void HardAssertUse() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		WebElement username = driver.findElement(By.xpath("//input[@name=\"username\"]"));
 		WebElement password = driver.findElement(By.xpath("//input[@name=\"password\"]"));
 
-		Assert.assertTrue(username.isDisplayed());
+		AssertJUnit.assertTrue(username.isDisplayed());
 		username.sendKeys("Admin");
 
-		Assert.assertTrue(password.isDisplayed());
+		AssertJUnit.assertTrue(password.isDisplayed());
 		username.sendKeys("admin123");
 
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
 
-		Assert.assertEquals("OrangeHRM", driver.getTitle());
-		driver.close();
+		AssertJUnit.assertEquals("OrangeHRM", driver.getTitle());
+		
 	}
 
 	@Test(priority = 6, enabled = false)
 	public void checkBoxScenarioQuestion() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/s?k=MOBI&crid=37TRUFPBR7GYR&sprefix=mobi%2Caps%2C374&ref=nb_sb_noss_2");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		List<WebElement> e = driver.findElements(By.xpath("//ul[@aria-labelledby=\"p_89-title\"]//li[contains(@id,'p_89')]"));
@@ -209,16 +185,13 @@ public class TestDemo extends BaseTestutil {
 			System.out.println(e11.getText());
 
 		}
-		driver.close();
+		
 	}
 
 	@Test(priority = 7, enabled = false)
 	public void useOfJavaScriptExecutorUtilDrawBorder() throws IOException, InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		WebElement element = driver.findElement(By.xpath("//img[@alt=\"company-branding\"]"));
@@ -256,11 +229,8 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 7, enabled = false)
 	public void useOfJavaScriptErUtilDrawBorder() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.google.com/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		driver.findElement(By.xpath("//input[@name=\"q\"]")).sendKeys("Shree Swami Samarth");
@@ -281,11 +251,8 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 8, enabled = false, dataProvider = "getData")
 	public void writingTheScriptInPOM(String username, String password) {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		LoginPage23 page = new LoginPage23(driver);
@@ -315,11 +282,8 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 9, enabled = false)
 	public void handleCheckboxByPawanSir() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/s?k=mobile&crid=3DAM5OD46B6ML&sprefix=mobile%2Caps%2C567&ref=nb_sb_noss_1");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		List<WebElement> list = driver.findElements(By.xpath("//li[contains(@id,'p_n_feature_eight_browse-bin/856111')]"));
 		Thread.sleep(5000);
@@ -368,11 +332,8 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 10, enabled = false)
 	public void handlingAutoSuggetionPopups() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.google.com/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		driver.findElement(By.xpath("//input[@type=\"text\"]")).sendKeys("pune");
@@ -395,11 +356,8 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 11, enabled = false)
 	public void handlingAutoSuggetionPopupwithPOM() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.google.com/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		GoogleSearchBoxSuggetion ss = new GoogleSearchBoxSuggetion(driver);
@@ -412,28 +370,21 @@ public class TestDemo extends BaseTestutil {
 
 	@Test(priority = 12, enabled = false)
 	public void LinkTextandPartialLinkText() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.att.com/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		 // LinkText and Partial LinkText
 		 driver.findElement(By.linkText("Internet")).click();
 		 driver.findElement(By.partialLinkText("Inte")).click();
 		 System.out.println(driver.getTitle());
-		 driver.close();
 
 	}
 
 	@Test(priority = 13, enabled = false)
 	public void allTheLinkOnWebApplication() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
 		List<WebElement> links = driver.findElements(By.tagName("a"));
@@ -466,10 +417,8 @@ public class TestDemo extends BaseTestutil {
 	
 	@Test(priority = 14, enabled = false)
 	public void keyboardaction() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://the-internet.herokuapp.com/key_presses");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		
 		Actions act = new Actions(driver);
@@ -483,15 +432,13 @@ public class TestDemo extends BaseTestutil {
 		Thread.sleep(3000);
 		act.sendKeys(Keys.ENTER).build().perform();
 		Thread.sleep(3000);
-		driver.close();
+		
 	}
 
 	@Test(priority = 15, enabled = false)
 	public void multiKeyboardAction() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://text-compare.com/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		
 		WebElement box1=driver.findElement(By.xpath("//textarea[@id=\"inputText1\"]"));
@@ -525,13 +472,12 @@ public class TestDemo extends BaseTestutil {
 				System.out.println("link copied");
 		else 
 			System.out.println("link copied");
-	}
+	    }
+	
 	@Test(priority = 16, enabled = false)
 	public void iframe() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summery.html");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		//Identify the frame with help of name     --->>1st frame
 		
@@ -551,14 +497,11 @@ public class TestDemo extends BaseTestutil {
 		driver.switchTo().frame(iframe);
 		driver.findElement(By.xpath("(//a[text()='Tree'])[1]")).click();
 		
-		driver.close();
 	}
 	@Test(priority = 17, enabled = false)
 	public void multiKeybrdAcon() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://demo.automationtesting.in/Frames.html");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		/***
@@ -580,27 +523,23 @@ public class TestDemo extends BaseTestutil {
 		
 		driver.findElement(By.xpath("(//input[@type=\"text\"])[1]")).sendKeys("swami");
 		*/
-		driver.close();
 	}
+	
 	@Test(priority = 18, enabled = false)
 	public void rightclickByPawanSir() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		WebElement button=driver.findElement(By.xpath("//span[text()='right click me']"));
 		Actions act= new Actions(driver);
 		act.contextClick(button).build().perform();
-		driver.close();	
+		
 	}
 	@Test(priority = 19, enabled = false)
 	public void doubletClickByPawanSir() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_ondblclick");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		driver.switchTo().frame("iframeResult");//identify frame by frame name
@@ -609,13 +548,12 @@ public class TestDemo extends BaseTestutil {
 		Actions act= new Actions(driver);
 		act.doubleClick(button).build().perform();
 		Thread.sleep(5000);
-		driver.close();	
+		
 	}
 
 	@Test(priority = 20, enabled = false)
 	public void dragAndDropByPawanSir() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();/****
+		/****
 		driver.get("http://dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-1.html");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -639,7 +577,7 @@ public class TestDemo extends BaseTestutil {
 		act.dragAndDrop(box4, dropBox2).build().perform();
 		*/
 		driver.navigate().to("https://www.globalsqa.com/demo-site/draganddrop/");
-		driver.manage().window().maximize();
+		
 		Actions act= new Actions(driver);
 		WebElement frame=driver.findElement(By.xpath("//iframe[@class=\"demo-frame lazyloaded\"]"));
 		driver.switchTo().frame(frame);
@@ -650,14 +588,11 @@ public class TestDemo extends BaseTestutil {
 			act.dragAndDrop(drag, drop).build().perform();;
 			Thread.sleep(5000);
 		}
-		driver.close();	
 	}
 	@Test(priority = 21, enabled = false)
 	public void mouseHoverWithClickByPawanSir() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://demo.opencart.com/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		WebElement element=driver.findElement(By.xpath("//a[text()='Laptops & Notebooks']"));
@@ -665,14 +600,12 @@ public class TestDemo extends BaseTestutil {
 		Actions act =new Actions(driver);
 		act.moveToElement(element).moveToElement(element1).click();
 		Thread.sleep(5000);
-		driver.close();
+		
 	}
 	@Test(priority = 22, enabled = false)
 	public void sliderByPawanSir() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.jqueryscript.net/demo/Price-Range-Slider-jQuery-UI/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		WebElement min_slider=driver.findElement(By.xpath("(//span[@class=\"ui-slider-handle ui-corner-all ui-state-default\"])[1]"));
@@ -688,14 +621,12 @@ public class TestDemo extends BaseTestutil {
 		Thread.sleep(5000);
 		act.dragAndDropBy(max_slider,-100,0).build().perform();
 		Thread.sleep(5000);
-		driver.close();
+		
 	}
 	@Test(priority = 23, enabled = false)
 	public void capturingScreenShotByPawanSir() throws InterruptedException, IOException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.amazon.in/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		//capturing screenshot
@@ -714,26 +645,20 @@ public class TestDemo extends BaseTestutil {
 				FileUtils.copyFile(src, trg);
 				*/
 				
-				driver.close();	
 	}
 	@Test(priority = 24, enabled = false)
 	public void fileUploadByWithSendkeysByPawanSir() throws InterruptedException, IOException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.foundit.in/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//div[@class=\"heroSection-buttonContainer_secondaryBtn secondaryBtn\"]")).click();
 		driver.findElement(By.xpath("//input[@id=\"file-upload\"]")).sendKeys("C:\\Users\\Basvaraj\\Downloads\\Variables.pdf");
-		driver.close();
 	}
 	@Test(priority = 25, enabled = false)
 	public void fileUploadByWithRobotClassByPawanSir() throws InterruptedException, IOException, AWTException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.foundit.in/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//div[@class=\"heroSection-buttonContainer_secondaryBtn secondaryBtn\"]")).click();
@@ -758,24 +683,20 @@ public class TestDemo extends BaseTestutil {
 	}
 	@Test(priority = 26, enabled = false)
 	public void fileyUploadingWithJavascriptExecutorByPawanSir() throws InterruptedException, IOException {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.foundit.in/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//div[@class=\"heroSection-buttonContainer_secondaryBtn secondaryBtn\"]")).click();
 		driver.findElement(By.xpath("//input[@id=\"file-upload\"]")).sendKeys("C:\\Users\\Basvaraj\\Downloads\\Variables.pdf");
 		JavascriptExecutor js  =(JavascriptExecutor) driver;
 	    js.executeScript ("document.getElementById('file-upload').value='‪C:\\Users\\Basvaraj\\Downloads\\Variables.pdf'");
-	    driver.close();
+	    
 	}
 	@Test(priority = 27, enabled = false)
 	public void webTableHandlingByPawanSir() throws InterruptedException, Exception {
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.selenium.dev/ecosystem/");
-		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		/***
 		List<WebElement> list=driver.findElements(By.xpath("(//table[@class=\"table\"]//tbody//tr)"));
@@ -797,8 +718,6 @@ public class TestDemo extends BaseTestutil {
 	
 	@Test(priority = 28, enabled = false)
 	public void calenderTableHandlingByPawanSir(){
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.redbus.in/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -816,8 +735,6 @@ public class TestDemo extends BaseTestutil {
 	
 	@Test(priority = 29, enabled = false)
 	public void toolTipByPawanSir(){
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://jqueryui.com/tooltip/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -828,17 +745,14 @@ public class TestDemo extends BaseTestutil {
 		WebElement tooltip= driver.findElement(By.xpath("//input[@id=\"age\"]"));
 		String tollTip= tooltip.getAttribute("title");
 		System.out.println("tooltip --:"+tollTip);
-		driver.close();	
 	}
-	@Test(priority = 30, enabled = false)
+	@Test(groups = {"Regression","Sanity","smoke"},priority = 30, enabled = true)
 	public void validateTextByPagesourceMethod(){
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://jqueryui.com/tooltip/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//WebDriver driver=getDriver();
+		getDriver().get("https://jqueryui.com/tooltip/");
+		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		if(driver.getPageSource().contains("Your age:"))
+		if(getDriver().getPageSource().contains("Your age:"))
 		{
 			System.out.println("Text is valid");
 		}
@@ -846,17 +760,14 @@ public class TestDemo extends BaseTestutil {
 		{
 			System.out.println("Text is not valid");
 		}
-		driver.close();	
 	}
-	@Test(priority = 31, enabled = false)
+	@Test(groups = {"Regression","Sanity","smoke"},priority = 31, enabled = true)
 	public void validateTextBy(){
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://jqueryui.com/tooltip/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//WebDriver driver=getDriver();
+		getDriver().get("https://jqueryui.com/tooltip/");
+		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		List<WebElement>list=driver.findElements(By.xpath("//h1[text()='Tooltip']"));
+		List<WebElement>list=getDriver().findElements(By.xpath("//h1[text()='Tooltip']"));
 		if(list.size()>0)
 		{
 			System.out.println("Text is valid");
@@ -865,14 +776,10 @@ public class TestDemo extends BaseTestutil {
 		{
 			System.out.println("Text is not valid");
 		}
-		driver.close();	
 	}
-	@Test(priority = 31, enabled = false)
+	@Test(priority = 32, enabled = false)
 	public void getTextIsNotWorking(){
-		System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\latest.exe");
-		WebDriver driver = new ChromeDriver();
 		driver.get("https://jqueryui.com/tooltip/");
-		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		WebElement ele = driver.findElement(By.xpath("//div[@id=\"content\"]//h1"));
@@ -880,11 +787,5 @@ public class TestDemo extends BaseTestutil {
 		System.out.println(text);
 		String text1=ele.getAttribute("textContent");
 		System.out.println(text1);
-		//driver.close();
-	}
-	@Test(enabled=false)
-	public void TC1() throws InterruptedException
-	{
-		
 	}
 }

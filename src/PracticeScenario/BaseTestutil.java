@@ -7,11 +7,72 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
+import com.beust.jcommander.Parameter;
 
 public class BaseTestutil {
+	 //public static WebDriver driver;
+	
+	
+	
+	ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	
+	WebDriver getDriver()
+	{
+		return driver.get();
+	}
+
+	
+	@BeforeMethod(groups = {"Regression","Sanity","smoke"})
+	@Parameters("browser")
+	public void setUp(String browser)
+	{
+		if (browser.equalsIgnoreCase("chrome")) 
+		{
+			System.setProperty("webdriver.chrome.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\driver.exe");
+			driver.set(new ChromeDriver());
+			getDriver().manage().window().maximize();
+		}
+		else if (browser.equalsIgnoreCase("firefox"))
+		{
+		    System.setProperty("webdriver.gecko.driver","E:\\Acceleration\\Automation Testing\\Workplace 4.9\\TestNGByShaileshSir\\Browser\\geckodriver.exe");
+		    driver.set(new FirefoxDriver());
+		    getDriver().manage().window().maximize();
+		}
+	}
+	@AfterMethod(groups = {"Regression","Sanity","smoke"})
+	public void tearDown()
+	{
+		getDriver().quit();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void explicitWait(WebDriver driver,WebElement ele)
 	{
 		WebDriverWait wait =new WebDriverWait(driver,10);

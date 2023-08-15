@@ -1,111 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="70" total="74" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="102796" started-at="2023-05-09T14:41:44 IST" finished-at="2023-05-09T14:43:26 IST">
+  <suite name="Default suite" duration-ms="40191" started-at="2023-08-04T11:12:34 IST" finished-at="2023-08-04T11:13:14 IST">
     <groups>
-      <group name="Sanity">
-        <method signature="TestDemo.validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextBy" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextByPagesourceMethod" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextBy" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextByPagesourceMethod" class="PracticeScenario.TestDemo"/>
-      </group> <!-- Sanity -->
-      <group name="smoke">
-        <method signature="TestDemo.validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextBy" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextByPagesourceMethod" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextBy" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextByPagesourceMethod" class="PracticeScenario.TestDemo"/>
-      </group> <!-- smoke -->
-      <group name="Regression">
-        <method signature="TestDemo.validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextBy" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextByPagesourceMethod" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextBy" class="PracticeScenario.TestDemo"/>
-        <method signature="TestDemo.validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextByPagesourceMethod" class="PracticeScenario.TestDemo"/>
-      </group> <!-- Regression -->
     </groups>
-    <test name="Test1" duration-ms="67353" started-at="2023-05-09T14:41:44 IST" finished-at="2023-05-09T14:42:51 IST">
-      <class name="PracticeScenario.TestDemo">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:PracticeScenario.TestDemo@26a7b76d]" name="setUp" is-config="true" duration-ms="24007" started-at="2023-05-09T14:41:44 IST" finished-at="2023-05-09T14:42:08 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
+    <test name="Default test" duration-ms="40191" started-at="2023-08-04T11:12:34 IST" finished-at="2023-08-04T11:13:14 IST">
+      <class name="PracticeScenario.Table">
+        <test-method status="PASS" signature="table()[pri:0, instance:PracticeScenario.Table@307f6b8c]" name="table" duration-ms="40121" started-at="2023-08-04T11:12:34 IST" finished-at="2023-08-04T11:13:14 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextByPagesourceMethod" duration-ms="15368" started-at="2023-05-09T14:42:08 IST" finished-at="2023-05-09T14:42:23 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateTextByPagesourceMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:PracticeScenario.TestDemo@26a7b76d]" name="tearDown" is-config="true" duration-ms="15970" started-at="2023-05-09T14:42:23 IST" finished-at="2023-05-09T14:42:39 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:PracticeScenario.TestDemo@26a7b76d]" name="setUp" is-config="true" duration-ms="1881" started-at="2023-05-09T14:42:39 IST" finished-at="2023-05-09T14:42:41 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@26a7b76d]" name="validateTextBy" duration-ms="9268" started-at="2023-05-09T14:42:41 IST" finished-at="2023-05-09T14:42:50 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateTextBy -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:PracticeScenario.TestDemo@26a7b76d]" name="tearDown" is-config="true" duration-ms="781" started-at="2023-05-09T14:42:50 IST" finished-at="2023-05-09T14:42:51 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- PracticeScenario.TestDemo -->
-    </test> <!-- Test1 -->
-    <test name="Test2" duration-ms="102796" started-at="2023-05-09T14:41:44 IST" finished-at="2023-05-09T14:43:26 IST">
-      <class name="PracticeScenario.TestDemo">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:PracticeScenario.TestDemo@78ac1102]" name="setUp" is-config="true" duration-ms="51319" started-at="2023-05-09T14:41:44 IST" finished-at="2023-05-09T14:42:35 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateTextByPagesourceMethod()[pri:30, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextByPagesourceMethod" duration-ms="16784" started-at="2023-05-09T14:42:35 IST" finished-at="2023-05-09T14:42:52 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateTextByPagesourceMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:PracticeScenario.TestDemo@78ac1102]" name="tearDown" is-config="true" duration-ms="7691" started-at="2023-05-09T14:42:52 IST" finished-at="2023-05-09T14:42:59 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:PracticeScenario.TestDemo@78ac1102]" name="setUp" is-config="true" duration-ms="8293" started-at="2023-05-09T14:42:59 IST" finished-at="2023-05-09T14:43:08 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateTextBy()[pri:31, instance:PracticeScenario.TestDemo@78ac1102]" name="validateTextBy" duration-ms="15088" started-at="2023-05-09T14:43:08 IST" finished-at="2023-05-09T14:43:23 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateTextBy -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:PracticeScenario.TestDemo@78ac1102]" name="tearDown" is-config="true" duration-ms="3519" started-at="2023-05-09T14:43:23 IST" finished-at="2023-05-09T14:43:26 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- PracticeScenario.TestDemo -->
-    </test> <!-- Test2 -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- table -->
+      </class> <!-- PracticeScenario.Table -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

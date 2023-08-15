@@ -19,6 +19,8 @@ public class StaleElement extends BaseTestutil
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		driver.manage().window().maximize();
+		
+		
 		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("Admin");
 		driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys("admin123");
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();

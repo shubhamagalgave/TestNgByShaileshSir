@@ -13,10 +13,13 @@ import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -130,8 +133,8 @@ public class TestDemo extends BaseTestutil {
 	@Test(enabled = false)
 	public void Assertion() {
 		// HardAssert
-		AssertJUnit.assertTrue(true);// passed
-		AssertJUnit.assertEquals("shubham", "Shubham");// false-failed
+		Assert.assertTrue(true);// passed
+		Assert.assertEquals("shubham", "Shubham");// false-failed
 		System.out.println("TC Passed");
 	}
 
@@ -139,9 +142,9 @@ public class TestDemo extends BaseTestutil {
 	public void SoftAssertion() {
 		// SoftAssert
 		SoftAssert softAssert = new SoftAssert();
-		AssertJUnit.assertTrue(true);
-		AssertJUnit.assertEquals("shubham", "shubham");
-		AssertJUnit.assertEquals("selenium", "Selenium");
+		Assert.assertTrue(true);
+		Assert.assertEquals("shubham", "shubham");
+		Assert.assertEquals("selenium", "Selenium");
 		System.out.println("TC Passed");
 		softAssert.assertAll();
 	}
@@ -155,15 +158,15 @@ public class TestDemo extends BaseTestutil {
 		WebElement username = driver.findElement(By.xpath("//input[@name=\"username\"]"));
 		WebElement password = driver.findElement(By.xpath("//input[@name=\"password\"]"));
 
-		AssertJUnit.assertTrue(username.isDisplayed());
+		Assert.assertTrue(username.isDisplayed());
 		username.sendKeys("Admin");
 
-		AssertJUnit.assertTrue(password.isDisplayed());
+		Assert.assertTrue(password.isDisplayed());
 		username.sendKeys("admin123");
 
 		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
 
-		AssertJUnit.assertEquals("OrangeHRM", driver.getTitle());
+		Assert.assertEquals("OrangeHRM", driver.getTitle());
 		
 	}
 
@@ -175,8 +178,11 @@ public class TestDemo extends BaseTestutil {
 
 		List<WebElement> e = driver.findElements(By.xpath("//ul[@aria-labelledby=\"p_89-title\"]//li[contains(@id,'p_89')]"));
 		/***
-		  for(WebElement ele:e) { System.out.println(e.size());
-		  System.out.println(ele.getText()); }
+		  for(WebElement ele:e) 
+		  { 
+		        System.out.println(e.size());
+		        System.out.println(ele.getText());
+		   }
 		 
 		*/
 		for (int i = 1; i < e.size(); i++) {
@@ -200,8 +206,7 @@ public class TestDemo extends BaseTestutil {
 		// get title of webpage
 		// getTitleByJs(driver);
 		// getScreenShots(driver);
-		// WebElement element1
-		// =driver.findElement(By.xpath("//div[@class=\"orangehrm-login-forgot\"]"));
+		// WebElement element1=driver.findElement(By.xpath("//div[@class=\"orangehrm-login-forgot\"]"));
 		// to click on element by js
 		// clickElementByJs(driver, element1);
 
@@ -290,7 +295,8 @@ public class TestDemo extends BaseTestutil {
 		System.out.println(list.size());
 		/*****
 		 * for(WebElement e:list) 
-		 * { /* WebDriverWait w = new WebDriverWait(driver, 10);
+		 * {
+		 *  /* WebDriverWait w = new WebDriverWait(driver, 10);
 		 * w.until(ExpectedConditions.elementToBeClickable(e));
 		 *  Wait wait= new FluentWait(driver) .withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(5)).ignoring(ElementClickInterceptedException.class);
 		 * wait.until(ExpectedConditions.elementToBeClickable(e)); 
@@ -342,8 +348,13 @@ public class TestDemo extends BaseTestutil {
 		// listEle.get(size-2).click();//to click on perticular link
 
 		/*
-		 * for (int i = 0; i < listEle.size(); i++) { if(i<2) //to click on first link {
-		 * listEle.get(i).click(); } }
+		 * for (int i = 0; i < listEle.size(); i++)
+		 *  { 
+		 *  if(i<2) //to click on first link
+		 *   {
+		 *        listEle.get(i).click(); 
+		 *   }
+		 *  }
 		 */
 		// to click on link textwise
 		for (WebElement li : listEle) {
@@ -746,7 +757,7 @@ public class TestDemo extends BaseTestutil {
 		String tollTip= tooltip.getAttribute("title");
 		System.out.println("tooltip --:"+tollTip);
 	}
-	@Test(groups = {"Regression","Sanity","smoke"},priority = 30, enabled = true)
+	@Test(groups = {"Regression","Sanity","smoke"},priority = 30, enabled = false)
 	public void validateTextByPagesourceMethod(){
 		//WebDriver driver=getDriver();
 		getDriver().get("https://jqueryui.com/tooltip/");
@@ -761,7 +772,7 @@ public class TestDemo extends BaseTestutil {
 			System.out.println("Text is not valid");
 		}
 	}
-	@Test(groups = {"Regression","Sanity","smoke"},priority = 31, enabled = true)
+	@Test(groups = {"Regression","Sanity","smoke"},priority = 31, enabled = false)
 	public void validateTextBy(){
 		//WebDriver driver=getDriver();
 		getDriver().get("https://jqueryui.com/tooltip/");
@@ -788,4 +799,21 @@ public class TestDemo extends BaseTestutil {
 		String text1=ele.getAttribute("textContent");
 		System.out.println(text1);
 	}
+	
+	@Test(priority = 33, enabled = true)
+	public void cookies()
+	{
+		driver.get("https://jqueryui.com/tooltip/");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		Set<Cookie> list=driver.manage().getCookies();
+		
+			System.out.println(list.toString());
+		
+		
+		
+		
+	}
+	
+	
 }

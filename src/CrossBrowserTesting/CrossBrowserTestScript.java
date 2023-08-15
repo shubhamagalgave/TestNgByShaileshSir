@@ -50,7 +50,7 @@ public class CrossBrowserTestScript {
   @AfterTest
   public void endTest()
   {
-	  driver.close();
+	  driver.quit();
   }
 	
 }

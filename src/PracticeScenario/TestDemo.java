@@ -487,26 +487,26 @@ public class TestDemo extends BaseTestutil {
 	
 	@Test(priority = 16, enabled = false)
 	public void iframe() throws InterruptedException {
-		driver.get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summery.html");
+		getDriver().get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summery.html");
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		//Identify the frame with help of name     --->>1st frame
 		
-		driver.switchTo().frame("packageListFrame");
-		driver.findElement(By.xpath("//a[text()='org.openqa.selenium']")).click();
+		getDriver().switchTo().frame("packageListFrame");
+		getDriver().findElement(By.xpath("//a[text()='org.openqa.selenium']")).click();
 		
-		driver.switchTo().defaultContent();// go back to main page  if this step is not taken then we can get **NosuchException**
+		getDriver().switchTo().defaultContent();// go back to main page  if this step is not taken then we can get **NosuchException**
 		
 		//Identify the frame with help of name     --->>2nd frame
-		driver.switchTo().frame("packageFrame");
-		driver.findElement(By.xpath("//span[text()='Alert']")).click();
+		getDriver().switchTo().frame("packageFrame");
+		getDriver().findElement(By.xpath("//span[text()='Alert']")).click();
 		
-		driver.switchTo().defaultContent();// go back to main page.  if this step is not taken then we can get **NosuchException**
+		getDriver().switchTo().defaultContent();// go back to main page.  if this step is not taken then we can get **NosuchException**
 		
 		//Identify the frame with help of WebElement     --->>3nd frame
-		WebElement iframe=driver.findElement(By.xpath("//iframe[@name=\"classFrame\"]"));
-		driver.switchTo().frame(iframe);
-		driver.findElement(By.xpath("(//a[text()='Tree'])[1]")).click();
+		WebElement iframe=getDriver().findElement(By.xpath("//iframe[@name=\"classFrame\"]"));
+		getDriver().switchTo().frame(iframe);
+		getDriver().findElement(By.xpath("(//a[text()='Tree'])[1]")).click();
 		
 	}
 	@Test(priority = 17, enabled = false)
@@ -803,10 +803,10 @@ public class TestDemo extends BaseTestutil {
 	@Test(priority = 33, enabled = true)
 	public void cookies()
 	{
-		driver.get("https://jqueryui.com/tooltip/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		getDriver().get("https://jqueryui.com/tooltip/");
+		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		Set<Cookie> list=driver.manage().getCookies();
+		Set<Cookie> list=getDriver().manage().getCookies();
 		
 			System.out.println(list.toString());
 		
